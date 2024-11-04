@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="images/x-icon" href="img2.jpg">
+    <style>
+        .main{
+            border: solid 3% azure;
+            background-color: rgb(85, 92, 92,0.5);
+            text-align: center;
+            width: 500px;
+            height: 290px;
+            margin-left: 33%;
+            margin-top: 15%;
+            transition: transform 0.3s ease;
+        }
+        .main:hover{
+            transform: scale(1.6);
+        }
+        h1{
+            color: rgb(228, 92, 8);
+        }
+        #texttospeech{
+            width: 290px;
+            height: 150px;
+            border-radius: 10px;
+        }
+        button{
+            margin-top: 3%;
+            border-radius: 10px;
+            width: 290px;
+            height: 30px;
+            background-color: rgb(52, 52, 194);
+            color: azure;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <h1><b>Text to Speech Converter</b></h1>
+    <textarea id="texttospeech" placeholder="enter here something..."></textarea>
+    <br>
+    <button onclick="speak()">speak</button>
+    </div>
+    <script>
+        var voice = new SpeechSynthesisUtterance();
+
+        function speak(){
+        var texttospeech = document.getElementById("texttospeech").Value;
+        if(texttospeech.trim() !== ""){
+            voice.text = texttospeech;
+            voice.rate = 1;
+            voice.volume = 1;
+            voice.pitch = 1;
+            window.speechSynthesis.speak(voice);
+        }
+        else{
+            alert("please enter something!!...")
+        }
+        }
+        
+    </script>
+    
+</body>
+</html>
